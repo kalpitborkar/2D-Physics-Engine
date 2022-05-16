@@ -98,3 +98,46 @@ void Environment::removeParticle(Particle *particle)
         }
     }
 }
+
+void Environment::removeSpring(Spring *spring)
+{
+    for (int i = 0; i < springs.size(); i++)
+    {
+        if (spring == springs[i])
+        {
+            delete springs[i];
+            springs.erase(springs.begin() + i);
+        }
+    }
+}
+
+void Environment::update()
+{
+    for (int i = 0; i < particles.size(); i++)
+    {
+        Particle *particle = particles[i];
+        if (allowAccelerate)
+            particle->accelerate(acceleration);
+        if (allowMove)
+            particle->move();
+        if (allowDrag)
+            particle->experienceDrag();
+        if (allowBounce)
+            bounce(particle);
+        for (int x = i + 1; x < particles.size(); x++)
+        {
+            Particle *otherParticle = particles[x];
+            if (allowCollide)
+                particle->collide(otherParticle);
+            if (allowAttract)
+                particle->attract(otherParticle);
+            if (allowCombine)
+                particle->combine(otherParticle);
+        }
+    }
+    for (int i = 0; i < springs.size(); i++)
+    {
+        Spring *spring = springs[i];
+        spring->update();
+    }
+}
