@@ -1,7 +1,7 @@
 # 2D-Physics-Engine
 A simple 2D Physics library written in C++.
 
-## Concepts
+## Structure
 ### Particle
 A `Particle` is an object representing a physical particle in `Environment`.<br />
 A `Particle` has a mass, speed, position, size, elasticity and other properties.<br />
