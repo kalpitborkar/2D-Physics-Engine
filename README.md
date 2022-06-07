@@ -12,6 +12,9 @@ A `Spring` has two `Particles` attached to it's either ends.  A `Spring` has len
 The `Environment` class represents the environment in which the simulation is occuring.<br />
 An `Environment` holds multiple `Particle` and `Spring` objects during simulation. <br />
 
+## License
+Distributed under the MIT License. See `LICENSE.md` for more information.
+
 ## References
 - https://www.petercollingridge.co.uk/tutorials/pygame-physics-simulation/
 - https://developer.ibm.com/tutorials/wa-build2dphysicsengine/
